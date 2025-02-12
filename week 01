@@ -1,1 +1,181 @@
+/*#include<iostream>
+using namespace std;
+
+template <class T>
+T GetMax(T a, T b) {
+	T result;
+	result = (a > b) ? a : b;
+	return (result);
+}
+int main() {
+	int i = 5, j = 6, k;
+	long l = 10, m = 5, n;
+	k = GetMax<int>(i, j);
+	n = GetMax<long>(l, m);
+	cout << k << endl;
+	cout << n << endl;
+	return 0;
+} */
+/*#include<iostream>
+using namespace std;
+
+template <class T>
+class mypair {
+	T a, b;
+public:
+	mypair(T first, T second) {
+		a = first;
+		b = second;
+	}
+	T getmin();
+};
+
+template <class T>
+T mypair<T>::getmin()
+{
+	T retval;
+	retval = a < b ? a : b;
+	return retval;
+}
+int main()
+{
+	mypair <int> myobject(100, 75);
+	cout << myobject.getmin();
+	return 0;
+} */
+/*#include<iostream>
+using namespace std;
+template <class T, int N>
+class mysequence {
+	T memblock[N];
+public:
+	void setmember(int x, T value);
+	T getmember(int x);
+};
+template <class T, int N>
+void mysequence<T, N>::setmember(int x, T value)
+{
+	memblock[x] = value;
+}
+template <class T, int N>
+T mysequence<T, N>::getmember(int x)
+{
+	return memblock[x];
+
+}
+int main() {
+	mysequence <int, 5> myints;
+	mysequence <double, 5> myfloats;
+
+	myints.setmember(0, 100);
+	myfloats.setmember(3, 3, 1416);
+
+	cout << myints.getmember(0) << '\n';
+	cout << myfloats.getmember(3) << '\n';
+	return 0;
+} */
+/*
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(void)
+{
+    ofstream outFile;
+    outFile.open("fout.txt");
+
+    ifstream inFile("fin.txt");
+
+    char ch;
+    int charCount = 0;
+    int wordCount = 0;
+    int sentenceCount = 0;
+    bool inWord = false;
+
+    while(inFile.get(ch))
+    {
+        outFile << ch;
+        charCount++;
+
+        if (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r') {
+            if (inWord) {
+                wordCount++;
+                inWord = false;
+            }
+        } else {
+            inWord = true;
+        }
+
+        if (ch == '.' || ch == '!' || ch == '?') {
+            sentenceCount++;
+        }
+    }
+
+    if (inWord) {
+        wordCount++;
+    }
+
+    outFile << "\n\nCharacter count = " << charCount << endl;
+    outFile << "Word count = " << wordCount << endl;
+    outFile << "Sentence count = " << sentenceCount << endl;
+
+    inFile.close();
+    outFile.close();
+
+    return 0;
+}
+*/
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+class House {
+public:
+    string owner;
+    string address;
+    int bedrooms;
+    float price;
+
+    void readData() {
+        cout << "Enter Owner: ";
+        getline(cin, owner);
+        cout << "Enter Address: ";
+        getline(cin, address);
+        cout << "Number of Bedrooms?: ";
+        cin >> bedrooms;
+        cout << "Price: ";
+        cin >> price;
+        cin.ignore();  
+    }
+
+    void displayData() const {
+        cout << owner << "\t" << address << "\t" << bedrooms << "\t" << price << endl;
+    }
+};
+
+int main() {
+    House available[100];
+    int count = 0;
+    char choice;
+
+    do {
+        cout << "Enter details for house " << count + 1 << ":\n";
+        available[count].readData();
+        count++;
+
+        cout << "Enter another house? (Y/N): ";
+        cin >> choice;
+        cin.ignore(); 
+    } while (choice == 'Y' || choice == 'y');
+
+    cout << "\nOwner\tAddress\tBedrooms\tPrice\n";
+    for (int i = 0; i < count; i++) {
+        available[i].displayData();
+    }
+
+    return 0;
+}
+*/
 
